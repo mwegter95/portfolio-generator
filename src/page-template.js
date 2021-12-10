@@ -1,4 +1,10 @@
-const generatePage = (name, github) => {
+module.exports = templateData => {
+  console.log(templateData);
+
+ // destructure page data by section
+  const { projects, about, ...header } = templateData;
+  console.log(projects, about, header);
+
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
@@ -10,11 +16,20 @@ const generatePage = (name, github) => {
   </head>
 
   <body>
-    <h1>${name}</h1>
-    <h2><a href="https://github.com/${github}">Github</a></h2>
+    <header>
+      <div class="container flex-row justify-space-between align-center py-3">
+        <h1 class="page-title text-secondary bg-dark py-2 px-3">${header.name}</h1>
+        <nav class="flex-row">
+          <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/${
+            header.github
+          }">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <footer class="container text-center py-3">
+      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
+    </footer>
   </body>
   </html>
   `;
-};
-
-module.exports = generatePage;
+  };
