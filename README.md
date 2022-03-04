@@ -1,3 +1,3 @@
 # portfolio-generator
 
-This is module content from module 9 of U of MN Full Stack coding bootcamp
+Module 9 reading content, not the challenge. From module 9, U of MN Full Stack coding bootcamp
